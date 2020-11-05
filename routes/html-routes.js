@@ -11,10 +11,10 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/signup.html"));
     console.log("clicked sign up");
   });
-  app.get("/complete", function(req, res) {
+  /*app.get("/complete", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/complete.html"));
     console.log("done");
-  });
+  });*/
   // Direct user to login page if button clicked
   app.get("/login", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/login.html"));
@@ -22,6 +22,10 @@ module.exports = function(app) {
   });
   // Log user out if logout clicked
   app.get("/questions/quiz/logout", function(req,res) {
+    req.logout();
+    res.redirect("/login");
+  });
+  app.get("/complete", function(req,res) {
     req.logout();
     res.redirect("/login");
   });
