@@ -2,7 +2,7 @@ module.exports = {
 
   "development": {
     "username": "root",
-    "password": "kmsdns123",
+    "password": process.env.MYSQL_PW,
     "database": "quiz",
     "host": "localhost",
     "dialect": "mysql"
